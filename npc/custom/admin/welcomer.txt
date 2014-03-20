@@ -1,0 +1,21 @@
+new_1-1,55,116,4	script	ExhilarateRO Welcomer	75,{
+	setarray .freebies[0],2394,1,2444,1,2549,1,2772,2;
+	mes "[ExhilarateRO Welcomer]";
+	mes "Hi! Welcome to ExhilarateRO!";
+	mes "Here are your welcome gifts!";
+		if (#newplayer == 0) {
+			set #newplayer,1;
+			getitem 30011,1;	// Account Freebies
+		}
+		if (Newplayer == 0) {
+			set Newplayer,1;
+			for (set .@i,0; .@i < getarraysize(.freebies$); set .@i,.@i+1) {
+				getitembound .freebies[.@i],.freebies[.@i+1];
+			}
+			announce "Please welcome "+strcharinfo(0)+"  to our server!",bc_all,0x0099FF;
+		}
+		close2;
+		savepoint "prontera",155,172;
+		warp "prontera",155,172;
+		end;
+}
