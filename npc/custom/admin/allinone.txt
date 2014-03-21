@@ -1,4 +1,4 @@
-prontera,159,192,4	script	ExhilarateRO Master	108,{
+prontera,151,192,4	script	ExhilarateRO Master	108,{
 	mes "[^0000FFExhilarateRO Master^000000]";
 	mes "Hello ^FF0000"+strcharinfo(0)+"^000000! What can I do for you?";
 	next;
@@ -612,9 +612,10 @@ Get_3rditem:
 				default:
 					goto L_No;
 				}
-			default:
-				goto L_No;
-		end;
+		default:
+		close;
+	}
+	end;
 
 CoinstoZen:
 	next;
@@ -686,11 +687,6 @@ L_No:
 	close2;
 	cutin "", 255;
 	end;
-
-	default:
-		close;
-	
-	}
 
 OnInit:
 	set .menu$,"Job Changer:Reset NPC:Card Remover:Platinum Skills:Rental NPC:Stylist:Build Manager:Kafra:Coin Exchanger";
