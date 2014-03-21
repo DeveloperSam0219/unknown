@@ -505,7 +505,7 @@ Get_3rditem:
 		next;
 		switch(select("Save:Use Storage:Cancel")) {
 			case 1:
-				save "Crystilia",68,77;
+				save "prontera",155,175;
 				mes "[Kafra Employee]";
 				mes "You're save point was now changed to Crystilia..";
 				close;
