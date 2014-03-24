@@ -29,7 +29,7 @@ new_1-1,55,116,4	script	ExhilarateRO Welcomer	803,{
 				rentitem .charfreebies[.@i],604800;	// rental for 1 week
 			}
 		}
-		L_end:
+		L_End:
 		close2;
 		announce "Please welcome "+strcharinfo(0)+"  to our server!",bc_all,0x0099FF;
 		savepoint "prontera",155,172;

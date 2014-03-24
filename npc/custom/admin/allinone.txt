@@ -654,10 +654,10 @@ ZentoCoins:
 	mes "How many coins would you like?";
 	set @mamount,0;
 	input @mamount;
-	if (zeny < 0) goto L_No;
-	if (zeny < (getarg(0) * @mamount)) goto L_No;
+	if (Zeny < 0) goto L_No;
+	if (Zeny < (getarg(0) * @mamount)) goto L_No;
 	if (checkweight(getarg(1),@mamount)) {
-	set Zeny,(zeny - (getarg(0) * @mamount));
+	set Zeny,(Zeny - (getarg(0) * @mamount));
 	getitem getarg(1),@mamount;
 	goto L_Thanks;
 	}
@@ -701,11 +701,11 @@ OnInit:
 	set .Item3rd,1;		// Get thirdjob headgears automatically? (1: yes / 0: no)
 
 	/* Coin Exchanger */
-	set	.BronzeCoin,100000;
-	set .SilverCoin,1000000;
-	set .GoldCoin,10000000;
-	set .MithrilCoin,100000000;
-	set .PlatinumCoin,1000000000;
+	set	.Bronzecoin,100000;
+	set .Silvercoin,1000000;
+	set .Goldcoin,10000000;
+	set .Mithrilcoin,100000000;
+	set .Platinumcoin,1000000000;
 	set	.BronzeCoin$,"100,000";
 	set .SilverCoin$,"1,000,000";
 	set .GoldCoin$,"10,000,000";

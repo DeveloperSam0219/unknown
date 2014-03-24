@@ -1,4 +1,4 @@
-alb_ship 1	mapflag	nobranch
+alb_ship	mapflag	nobranch
 alb2trea	mapflag	nobranch
 alberta	mapflag	nobranch
 alberta_in	mapflag	nobranch
