@@ -1,0 +1,471 @@
+//============== MAP FLAG ===============
+// Player
+pvp_y_3-2	mapflag	nosave
+pvp_y_3-2	mapflag	noteleport
+pvp_y_3-2	mapflag	nowarpto
+pvp_y_3-2	mapflag	nowarp
+pvp_y_3-2	mapflag	nomemo
+pvp_y_3-2	mapflag	gvg	off
+pvp_y_3-2	mapflag	pvp
+pvp_y_3-2	mapflag	nopenalty
+pvp_y_3-2	mapflag	nobranch
+
+
+guild_vs3	mapflag	nosave
+guild_vs3	mapflag	noteleport
+guild_vs3	mapflag	nowarpto
+guild_vs3	mapflag	nowarp
+guild_vs3	mapflag	nomemo
+guild_vs3	mapflag	gvg	off
+guild_vs3	mapflag	pvp
+guild_vs3	mapflag	nopenalty
+guild_vs3	mapflag	nobranch
+guild_vs3	mapflag	pvp_noguild
+
+// Guild
+guild_vs1	mapflag	nosave
+guild_vs1	mapflag	noteleport
+guild_vs1	mapflag	nowarpto
+guild_vs1	mapflag	nowarp
+guild_vs1	mapflag	nomemo
+guild_vs1	mapflag	gvg	on
+guild_vs1	mapflag	nopenalty
+guild_vs1	mapflag	nobranch
+
+prt_are01	mapflag	nosave
+prt_are01	mapflag	noteleport
+prt_are01	mapflag	nowarpto
+prt_are01	mapflag	nowarp
+prt_are01	mapflag	nomemo
+prt_are01	mapflag	gvg	on
+prt_are01	mapflag	nopenalty
+prt_are01	mapflag	nobranch
+
+// Baby
+guild_vs2	mapflag	nosave
+guild_vs2	mapflag	noteleport
+guild_vs2	mapflag	nowarpto
+guild_vs2	mapflag	nowarp
+guild_vs2	mapflag	nomemo
+guild_vs2	mapflag	gvg	off
+guild_vs2	mapflag	pvp
+guild_vs2	mapflag	nopenalty
+guild_vs2	mapflag	nobranch
+
+//------------------------Mapflags--------------------------------
+himinn	mapflag	nowarp
+himinn	mapflag	nowarpto
+himinn	mapflag	noteleport
+himinn	mapflag	nosave	SavePoint
+himinn	mapflag	nomemo
+himinn	mapflag	nobranch
+
+// Portal Event Mapflags
+pvp_y_8-2	mapflag	nowarp
+pvp_y_8-4	mapflag	nowarp
+pvp_y_8-5	mapflag	nowarp
+pvp_y_8-3	mapflag	nowarp
+pvp_y_8-1	mapflag	nowarp
+
+pvp_y_8-2	mapflag	nowarpto
+pvp_y_8-4	mapflag	nowarpto
+pvp_y_8-5	mapflag	nowarpto
+pvp_y_8-3	mapflag	nowarpto
+pvp_y_8-1	mapflag	nowarpto
+
+// Poring Catcher ------- Mapflags
+poring_w01	mapflag	nowarp
+poring_w01	mapflag	nowarpto
+poring_w01	mapflag	noteleport
+poring_w01	mapflag	nosave
+poring_w01	mapflag	nomemo
+poring_w01	mapflag	nobranch
+poring_w01	mapflag	noloot
+poring_w01	mapflag	noskill
+poring_w01	mapflag	nopenalty
+
+// AllyChat
+prtg_cas01	mapflag	nocommand	50
+prtg_cas02	mapflag	nocommand	50
+prtg_cas03	mapflag	nocommand	50
+prtg_cas04	mapflag	nocommand	50
+prtg_cas05	mapflag	nocommand	50
+payg_cas01	mapflag	nocommand	50
+payg_cas02	mapflag	nocommand	50
+payg_cas03	mapflag	nocommand	50
+payg_cas04	mapflag	nocommand	50
+payg_cas05	mapflag	nocommand	50
+aldeg_cas01	mapflag	nocommand	50
+aldeg_cas02	mapflag	nocommand	50
+aldeg_cas03	mapflag	nocommand	50
+aldeg_cas04	mapflag	nocommand	50
+aldeg_cas05	mapflag	nocommand	50
+gefg_cas01	mapflag	nocommand	50
+gefg_cas02	mapflag	nocommand	50
+gefg_cas03	mapflag	nocommand	50
+gefg_cas04	mapflag	nocommand	50
+gefg_cas05	mapflag	nocommand	50
+schg_cas01	mapflag	nocommand	50
+schg_cas02	mapflag	nocommand	50
+schg_cas03	mapflag	nocommand	50
+schg_cas04	mapflag	nocommand	50
+schg_cas05	mapflag	nocommand	50
+arug_cas01	mapflag	nocommand	50
+arug_cas02	mapflag	nocommand	50
+arug_cas03	mapflag	nocommand	50
+arug_cas04	mapflag	nocommand	50
+arug_cas05	mapflag	nocommand	50
+
+// PVP
+pvp_y_1-1	mapflag	nocommand	50
+pvp_y_1-2	mapflag	nocommand	50
+pvp_y_1-3	mapflag	nocommand	50
+pvp_y_1-4	mapflag	nocommand	50
+pvp_y_1-5	mapflag	nocommand	50
+pvp_y_2-1	mapflag	nocommand	50
+pvp_y_2-2	mapflag	nocommand	50
+pvp_y_2-3	mapflag	nocommand	50
+pvp_y_2-4	mapflag	nocommand	50
+pvp_y_2-5	mapflag	nocommand	50
+pvp_y_3-1	mapflag	nocommand	50
+pvp_y_3-2	mapflag	nocommand	50
+pvp_y_3-3	mapflag	nocommand	50
+pvp_y_3-4	mapflag	nocommand	50
+pvp_y_3-5	mapflag	nocommand	50
+pvp_y_4-1	mapflag	nocommand	50
+pvp_y_4-2	mapflag	nocommand	50
+pvp_y_4-3	mapflag	nocommand	50
+pvp_y_4-4	mapflag	nocommand	50
+pvp_y_4-5	mapflag	nocommand	50
+pvp_y_5-1	mapflag	nocommand	50
+pvp_y_5-2	mapflag	nocommand	50
+pvp_y_5-3	mapflag	nocommand	50
+pvp_y_5-4	mapflag	nocommand	50
+pvp_y_5-5	mapflag	nocommand	50
+pvp_y_6-1	mapflag	nocommand	50
+pvp_y_6-2	mapflag	nocommand	50
+pvp_y_6-3	mapflag	nocommand	50
+pvp_y_6-4	mapflag	nocommand	50
+pvp_y_6-5	mapflag	nocommand	50
+pvp_y_7-1	mapflag	nocommand	50
+pvp_y_7-2	mapflag	nocommand	50
+pvp_y_7-3	mapflag	nocommand	50
+pvp_y_7-4	mapflag	nocommand	50
+pvp_y_7-5	mapflag	nocommand	50
+pvp_y_8-1	mapflag	nocommand	50
+pvp_y_8-2	mapflag	nocommand	50
+pvp_y_8-3	mapflag	nocommand	50
+pvp_y_8-4	mapflag	nocommand	50
+pvp_y_8-5	mapflag	nocommand	50
+
+guild_vs3	mapflag	nocommand	50
+guild_vs2	mapflag	nocommand	50
+guild_vs1	mapflag	nocommand	50
+prt_are01	mapflag	nocommand	50
+
+// ===================================================
+// NO WARP
+// ===================================================
+// PVP Maps ====================
+pvp_y_1-1	mapflag	nowarp	50
+pvp_y_1-2	mapflag	nowarp	50
+pvp_y_1-3	mapflag	nowarp	50
+pvp_y_1-4	mapflag	nowarp	50
+pvp_y_1-5	mapflag	nowarp	50
+pvp_y_2-1	mapflag	nowarp	50
+pvp_y_2-2	mapflag	nowarp	50
+pvp_y_2-3	mapflag	nowarp	50
+pvp_y_2-4	mapflag	nowarp	50
+pvp_y_2-5	mapflag	nowarp	50
+pvp_y_3-1	mapflag	nowarp	50
+pvp_y_3-2	mapflag	nowarp	50
+pvp_y_3-3	mapflag	nowarp	50
+pvp_y_3-4	mapflag	nowarp	50
+pvp_y_3-5	mapflag	nowarp	50
+pvp_y_4-1	mapflag	nowarp	50
+pvp_y_4-2	mapflag	nowarp	50
+pvp_y_4-3	mapflag	nowarp	50
+pvp_y_4-4	mapflag	nowarp	50
+pvp_y_4-5	mapflag	nowarp	50
+pvp_y_5-1	mapflag	nowarp	50
+pvp_y_5-2	mapflag	nowarp	50
+pvp_y_5-3	mapflag	nowarp	50
+pvp_y_5-4	mapflag	nowarp	50
+pvp_y_5-5	mapflag	nowarp	50
+pvp_y_6-1	mapflag	nowarp	50
+pvp_y_6-2	mapflag	nowarp	50
+pvp_y_6-3	mapflag	nowarp	50
+pvp_y_6-4	mapflag	nowarp	50
+pvp_y_6-5	mapflag	nowarp	50
+pvp_y_7-1	mapflag	nowarp	50
+pvp_y_7-2	mapflag	nowarp	50
+pvp_y_7-3	mapflag	nowarp	50
+pvp_y_7-4	mapflag	nowarp	50
+pvp_y_7-5	mapflag	nowarp	50
+
+// MVP Room ====================
+pvp_n_1-1	mapflag	nowarp	50
+pvp_n_2-1	mapflag	nowarp	50
+pvp_n_3-1	mapflag	nowarp	50
+pvp_n_4-1	mapflag	nowarp	50
+pvp_n_5-1	mapflag	nowarp	50
+pvp_n_6-1	mapflag	nowarp	50
+pvp_n_7-1	mapflag	nowarp	50
+pvp_n_8-1	mapflag	nowarp	50
+pvp_n_1-2	mapflag	nowarp	50
+pvp_n_2-2	mapflag	nowarp	50
+pvp_n_3-2	mapflag	nowarp	50
+pvp_n_4-2	mapflag	nowarp	50
+pvp_n_5-2	mapflag	nowarp	50
+pvp_n_6-2	mapflag	nowarp	50
+pvp_n_7-2	mapflag	nowarp	50
+pvp_n_8-2	mapflag	nowarp	50
+pvp_n_1-3	mapflag	nowarp	50
+pvp_n_2-3	mapflag	nowarp	50
+pvp_n_3-3	mapflag	nowarp	50
+pvp_n_4-3	mapflag	nowarp	50
+pvp_n_5-3	mapflag	nowarp	50
+pvp_n_6-3	mapflag	nowarp	50
+pvp_n_7-3	mapflag	nowarp	50
+pvp_n_8-3	mapflag	nowarp	50
+pvp_n_1-4	mapflag	nowarp	50
+pvp_n_2-4	mapflag	nowarp	50
+pvp_n_3-4	mapflag	nowarp	50
+pvp_n_4-4	mapflag	nowarp	50
+pvp_n_5-4	mapflag	nowarp	50
+pvp_n_6-4	mapflag	nowarp	50
+pvp_n_7-4	mapflag	nowarp	50
+pvp_n_8-4	mapflag	nowarp	50
+pvp_n_1-5	mapflag	nowarp	50
+pvp_n_2-5	mapflag	nowarp	50
+pvp_n_3-5	mapflag	nowarp	50
+pvp_n_4-5	mapflag	nowarp	50
+pvp_n_5-5	mapflag	nowarp	50
+pvp_n_6-5	mapflag	nowarp	50
+pvp_n_7-5	mapflag	nowarp	50
+pvp_n_8-5	mapflag	nowarp	50
+
+
+schg_dun01	mapflag	nowarp	50
+arug_dun01	mapflag	nowarp	50
+gld_dun01	mapflag	nowarp	50
+gld_dun02	mapflag	nowarp	50
+gld_dun03	mapflag	nowarp	50
+gld_dun04	mapflag	nowarp	50
+
+guild_room	mapflag	nowarp	50
+quiz_01	mapflag	nowarp	50
+sec_pri	mapflag	nowarp	50
+new_1-1	mapflag	nowarp	50
+new_1-2	mapflag	nowarp	50
+new_1-3	mapflag	nowarp	50
+new_1-4	mapflag	nowarp	50
+new_2-1	mapflag	nowarp	50
+new_2-2	mapflag	nowarp	50
+new_2-3	mapflag	nowarp	50
+new_2-4	mapflag	nowarp	50
+new_3-1	mapflag	nowarp	50
+new_3-2	mapflag	nowarp	50
+new_3-3	mapflag	nowarp	50
+new_3-4	mapflag	nowarp	50
+new_4-1	mapflag	nowarp	50
+new_4-2	mapflag	nowarp	50
+new_4-3	mapflag	nowarp	50
+new_4-4	mapflag	nowarp	50
+new_5-1	mapflag	nowarp	50
+new_5-2	mapflag	nowarp	50
+new_5-3	mapflag	nowarp	50
+new_5-4	mapflag	nowarp	50
+lhz_dun03	mapflag	nowarp	50
+lhz_dun04	mapflag	nowarp	50
+quiz_02	mapflag	nowarp	50
+thana_boss	mapflag	nowarp	50
+
+// ===================================================
+// NO WARPTO
+// ===================================================
+// PVP maps ======================
+pvp_y_1-1	mapflag	nowarpto	50
+pvp_y_1-2	mapflag	nowarpto	50
+pvp_y_1-3	mapflag	nowarpto	50
+pvp_y_1-4	mapflag	nowarpto	50
+pvp_y_1-5	mapflag	nowarpto	50
+pvp_y_2-1	mapflag	nowarpto	50
+pvp_y_2-2	mapflag	nowarpto	50
+pvp_y_2-3	mapflag	nowarpto	50
+pvp_y_2-4	mapflag	nowarpto	50
+pvp_y_2-5	mapflag	nowarpto	50
+pvp_y_3-1	mapflag	nowarpto	50
+pvp_y_3-2	mapflag	nowarpto	50
+pvp_y_3-3	mapflag	nowarpto	50
+pvp_y_3-4	mapflag	nowarpto	50
+pvp_y_3-5	mapflag	nowarpto	50
+pvp_y_4-1	mapflag	nowarpto	50
+pvp_y_4-2	mapflag	nowarpto	50
+pvp_y_4-3	mapflag	nowarpto	50
+pvp_y_4-4	mapflag	nowarpto	50
+pvp_y_4-5	mapflag	nowarpto	50
+pvp_y_5-1	mapflag	nowarpto	50
+pvp_y_5-2	mapflag	nowarpto	50
+pvp_y_5-3	mapflag	nowarpto	50
+pvp_y_5-4	mapflag	nowarpto	50
+pvp_y_5-5	mapflag	nowarpto	50
+pvp_y_6-1	mapflag	nowarpto	50
+pvp_y_6-2	mapflag	nowarpto	50
+pvp_y_6-3	mapflag	nowarpto	50
+pvp_y_6-4	mapflag	nowarpto	50
+pvp_y_6-5	mapflag	nowarpto	50
+pvp_y_7-1	mapflag	nowarpto	50
+pvp_y_7-2	mapflag	nowarpto	50
+pvp_y_7-3	mapflag	nowarpto	50
+pvp_y_7-4	mapflag	nowarpto	50
+pvp_y_7-5	mapflag	nowarpto	50
+
+// MVP Room ====================
+pvp_n_1-1	mapflag	nowarpto	50
+pvp_n_2-1	mapflag	nowarpto	50
+pvp_n_3-1	mapflag	nowarpto	50
+pvp_n_4-1	mapflag	nowarpto	50
+pvp_n_5-1	mapflag	nowarpto	50
+pvp_n_6-1	mapflag	nowarpto	50
+pvp_n_7-1	mapflag	nowarpto	50
+pvp_n_8-1	mapflag	nowarpto	50
+pvp_n_1-2	mapflag	nowarpto	50
+pvp_n_2-2	mapflag	nowarpto	50
+pvp_n_3-2	mapflag	nowarpto	50
+pvp_n_4-2	mapflag	nowarpto	50
+pvp_n_5-2	mapflag	nowarpto	50
+pvp_n_6-2	mapflag	nowarpto	50
+pvp_n_7-2	mapflag	nowarpto	50
+pvp_n_8-2	mapflag	nowarpto	50
+pvp_n_1-3	mapflag	nowarpto	50
+pvp_n_2-3	mapflag	nowarpto	50
+pvp_n_3-3	mapflag	nowarpto	50
+pvp_n_4-3	mapflag	nowarpto	50
+pvp_n_5-3	mapflag	nowarpto	50
+pvp_n_6-3	mapflag	nowarpto	50
+pvp_n_7-3	mapflag	nowarpto	50
+pvp_n_8-3	mapflag	nowarpto	50
+pvp_n_1-4	mapflag	nowarpto	50
+pvp_n_2-4	mapflag	nowarpto	50
+pvp_n_3-4	mapflag	nowarpto	50
+pvp_n_4-4	mapflag	nowarpto	50
+pvp_n_5-4	mapflag	nowarpto	50
+pvp_n_6-4	mapflag	nowarpto	50
+pvp_n_7-4	mapflag	nowarpto	50
+pvp_n_8-4	mapflag	nowarpto	50
+pvp_n_1-5	mapflag	nowarpto	50
+pvp_n_2-5	mapflag	nowarpto	50
+pvp_n_3-5	mapflag	nowarpto	50
+pvp_n_4-5	mapflag	nowarpto	50
+pvp_n_5-5	mapflag	nowarpto	50
+pvp_n_6-5	mapflag	nowarpto	50
+pvp_n_7-5	mapflag	nowarpto	50
+pvp_n_8-5	mapflag	nowarpto	50
+
+schg_dun01	mapflag	nowarpto	50
+arug_dun01	mapflag	nowarpto	50
+gld_dun01	mapflag	nowarpto	50
+gld_dun02	mapflag	nowarpto	50
+gld_dun03	mapflag	nowarpto	50
+gld_dun04	mapflag	nowarpto	50
+
+guild_room	mapflag	nowarpto	50
+quiz_01	mapflag	nowarpto	50
+sec_pri	mapflag	nowarpto	50
+new_1-1	mapflag	nowarpto	50
+new_1-2	mapflag	nowarpto	50
+new_1-3	mapflag	nowarpto	50
+new_1-4	mapflag	nowarpto	50
+new_2-1	mapflag	nowarpto	50
+new_2-2	mapflag	nowarpto	50
+new_2-3	mapflag	nowarpto	50
+new_2-4	mapflag	nowarpto	50
+new_3-1	mapflag	nowarpto	50
+new_3-2	mapflag	nowarpto	50
+new_3-3	mapflag	nowarpto	50
+new_3-4	mapflag	nowarpto	50
+new_4-1	mapflag	nowarpto	50
+new_4-2	mapflag	nowarpto	50
+new_4-3	mapflag	nowarpto	50
+new_4-4	mapflag	nowarpto	50
+new_5-1	mapflag	nowarpto	50
+new_5-2	mapflag	nowarpto	50
+new_5-3	mapflag	nowarpto	50
+new_5-4	mapflag	nowarpto	50
+lhz_dun03	mapflag	nowarpto	50
+lhz_dun04	mapflag	nowarpto	50
+quiz_02	mapflag	nowarpto	50
+thana_boss	mapflag	nowarpto	50
+
+/*// Non Donor PvP Room 1
+pvpmap	mapflag	nowarp	20
+pvpmap	mapflag	nowarpto	20
+pvpmap	mapflag	noreturn	20
+pvpmap	mapflag	nomemo	20
+pvpmap	mapflag	pvp
+pvpmap	mapflag	pvp_noparty
+pvpmap	mapflag	pvp_noguild
+pvpmap	mapflag	noteleport
+pvpmap	mapflag	novending
+pvpmap	mapflag	nosave	SavePoint
+pvpmap	mapflag	nocommand	20
+pvpmap	mapflag	restricted	3
+
+// Non Donor PvP Room 2
+pvpmap2	mapflag	nowarp	20
+pvpmap2	mapflag	nowarpto	20
+pvpmap2	mapflag	noreturn	20
+pvpmap2	mapflag	nomemo	20
+pvpmap2	mapflag	pvp
+pvpmap2	mapflag	pvp_noparty
+pvpmap2	mapflag	pvp_noguild
+pvpmap2	mapflag	noteleport
+pvpmap2	mapflag	novending
+pvpmap2	mapflag	nosave	SavePoint
+pvpmap2	mapflag	nocommand	20
+pvpmap2	mapflag	restricted	4
+
+// Donor PvP Room 1
+pvpmap3	mapflag	nowarp	20
+pvpmap3	mapflag	nowarpto	20
+pvpmap3	mapflag	noreturn	20
+pvpmap3	mapflag	nomemo	20
+pvpmap3	mapflag	pvp
+pvpmap3	mapflag	pvp_noparty
+pvpmap3	mapflag	pvp_noguild
+pvpmap3	mapflag	noteleport
+pvpmap3	mapflag	novending
+pvpmap3	mapflag	nosave	SavePoint
+pvpmap3	mapflag	nocommand	20
+
+// Donor PvP Room 2
+pvpmap4	mapflag	nowarp	20
+pvpmap4	mapflag	nowarpto	20
+pvpmap4	mapflag	noreturn	20
+pvpmap4	mapflag	nomemo	20
+pvpmap4	mapflag	pvp
+pvpmap4	mapflag	pvp_noparty
+pvpmap4	mapflag	pvp_noguild
+pvpmap4	mapflag	noteleport
+pvpmap4	mapflag	novending
+pvpmap4	mapflag	nosave	SavePoint
+pvpmap4	mapflag	nocommand	20
+pvpmap4	mapflag	restricted	5
+*/
+
+quiz_01	mapflag	noreturn	20
+quiz_01	mapflag	nomemo	20
+quiz_01	mapflag	noteleport
+quiz_01	mapflag	novending
+quiz_01	mapflag	nosave	SavePoint
+quiz_01	mapflag	nocommand	20
+
+quiz_02	mapflag	noreturn	20
+quiz_02	mapflag	nomemo	20
+quiz_02	mapflag	noteleport
+quiz_02	mapflag	novending
+quiz_02	mapflag	nosave	SavePoint
+
+sec_pri	mapflag	nocommand	20
+sec_pri	mapflag	notrade	20

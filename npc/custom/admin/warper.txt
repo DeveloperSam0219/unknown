@@ -25,7 +25,7 @@ function Go; function Disp; function Pick; function Restrict;
 
 menu	"Last Warp ^777777["+lastwarp$+"]^000000",-,
 	" ~ Towns",Towns, " ~ Fields",Fields, " ~ Dungeons",Dungeons,
-	" ~ Guild Castles",Castles, " ~ Guild Dungeons",Guild_Dungeons,
+	" ~ Guild Castles",Castles, /*" ~ Guild Dungeons",Guild_Dungeons,*/
 	" ~ Instances",Instances, " ~ Special Areas",Special;
 
 	if (lastwarp$ == "")
