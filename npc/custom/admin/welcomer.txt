@@ -1,5 +1,8 @@
-new_1-1,55,116,4	script	ExhilarateRO Welcomer	75,{
-	setarray .freebies[0],2394,1,2444,1,2549,1,2772,2;
+new_1-1,55,116,4	script	ExhilarateRO Welcomer	803,{
+	setarray .accfreebies[0],15049,1,2589,1,2431,1,2127,1,18550,1,5592,1,18884,1,12210,10;
+	setarray .charfreebies[0],2115,1,2357,1,2524,1,2421,1,5171,1;
+	setarray .bravery[0],13036,13411,1183,1425,1632,1634,1543,1380,13305,1739,1279,1924,1978,1574,1824,13108,13172,13174;
+	setarray .valorous[0],13037,13410,1184,1482,1633,1635,1542,1379,13306,1738,1280,1923,1977,1575,1823,13171,13173;
 	mes "[ExhilarateRO Welcomer]";
 	mes "Hi! Welcome to ExhilarateRO!";
 	mes "Here are your welcome gifts!";
@@ -7,16 +10,59 @@ new_1-1,55,116,4	script	ExhilarateRO Welcomer	75,{
 	mes "Happy gaming and God bless you!";
 		if (#newplayer == 0) {
 			set #newplayer,1;
-			for (set .@i,0; .@i < getarraysize(.freebies$); set .@i,.@i+1) {
-				getitembound .freebies[.@i],.freebies[.@i+1],1;
+			for (set .@i,0; .@i < getarraysize(.accfreebies); set .@i,.@i+2) {
+				getitembound .accfreebies[.@i],.accfreebies[.@i+1],1;
 			}
 		}
+		if (#newplayer[1] == 0) {
+			next;
+			mes "So what weapon do you want to get?";
+			if (select("Valorous:Bravery") == 1) goto L_Valorous;
+			else goto L_Bravery;
+		}
+		L_char:
 		if (Newplayer == 0) {
 			set Newplayer,1;
-			announce "Please welcome "+strcharinfo(0)+"  to our server!",bc_all,0x0099FF;
+			getitem 14545,5;	// Field Manual 300%
+			getitem 14524,50;	// Fish Slice
+			for (set .@i,0; .@i < getarraysize(.charfreebies); set .@i,.@i+2) {
+				rentitem .charfreebies[.@i],.charfreebies[.@i+1],604800;	// rental for 1 week
+			}
 		}
+		L_end:
 		close2;
+		announce "Please welcome "+strcharinfo(0)+"  to our server!",bc_all,0x0099FF;
 		savepoint "prontera",155,172;
 		warp "prontera",155,172;
 		end;
+
+L_Valorous:
+	next;
+	mes "Please select the weapon you want.";
+	mes "Take note, this item is bounded to your account..";
+	set .@itemmenu$,"";
+	for (set .@i,0; .@i < getarraysize(.valorous); set .@i,.@i+1) {
+		if (.@i) set .@itemmenu$,.@itemmenu$+":";
+		set .@itemmenu$,.@itemmenu$+getitemname(.valorous[.@i]);
+	}
+	set .@selection,select(.@itemmenu$)-1;
+	set #newplayer[1],1;
+	getitembound .valorous[.@selection],1,1;
+	goto L_char;
+	end;
+
+L_Bravery:
+	next;
+	mes "Please select the weapon you want.";
+	mes "Take note, this item is bounded to your account..";
+	set .@itemmenu$,"";
+	for (set .@i,0; .@i < getarraysize(.bravery); set .@i,.@i+1) {
+		if (.@i) set .@itemmenu$,.@itemmenu$+":";
+		set .@itemmenu$,.@itemmenu$+getitemname(.bravery[.@i]);
+	}
+	set .@selection,select(.@itemmenu$)-1;
+	set #newplayer[1],1;
+	getitembound .bravery[.@selection],1,1;
+	goto L_char;
+	end;
 }
