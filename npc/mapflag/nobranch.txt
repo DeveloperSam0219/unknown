@@ -772,14 +772,12 @@ dic_dun02	mapflag	nobranch
 job3_gen01	mapflag	nobranch
 s_atelier	mapflag	nobranch
 job3_sha01	mapflag	nobranch
-	mapflag	nobranch
 //evt_zombie	mapflag	nobranch
 //evt_coke	mapflag	nobranch
 //ac_sl_area	mapflag	nobranch
 //ac_cl_hall	mapflag	nobranch
 //ac_cl_room	mapflag	nobranch
 //jp_s_dun11	mapflag	nobranch
-	mapflag	nobranch
 mora	mapflag	nobranch
 bif_fild01	mapflag	nobranch
 bif_fild02	mapflag	nobranch
@@ -922,3 +920,4 @@ moro_cav	mapflag	nobranch
 1@jtb	mapflag	nobranch
 c_tower2_	mapflag	nobranch
 c_tower3_	mapflag	nobranch
+ggpro	mapflag	nobranch
