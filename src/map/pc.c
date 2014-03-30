@@ -2705,9 +2705,7 @@ int pc_bonus(struct map_session_data *sd,int type,int val) {
 			break;
 		case SP_ADD_VARIABLECAST:
 			if(sd->state.lr_flag != 2)
-
 				sd->bonus.add_varcast += val;
-
 			break;
 	#endif
 		case SP_ADD_MONSTER_DROP_CHAINITEM:
@@ -6887,7 +6885,7 @@ int pc_dead(struct map_session_data *sd,struct block_list *src) {
 	npc->script_event(sd,NPCE_DIE);
 		
 	// Clear anything NPC-related when you die and was interacting with one.
-	if (sd->npc_id || sd->npc_shopid) {
+	if ( (sd->npc_id || sd->npc_shopid) && sd->state.dialog) {
 		if (sd->state.using_fake_npc) {
 			clif->clearunit_single(sd->npc_id, CLR_OUTSIGHT, sd->fd);
 			sd->state.using_fake_npc = 0;
