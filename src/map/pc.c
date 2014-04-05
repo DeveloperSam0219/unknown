@@ -6219,14 +6219,15 @@ int pc_maxparameterincrease(struct map_session_data* sd, int type) {
 
 /**
  * Raises a stat by the specified amount.
+ *
  * Obeys max_parameter limits.
- * Does not subtract stat points.
+ * Subtracts status points according to the cost of the increased stat points.
  *
  * @param sd       The target character.
  * @param type     The stat to change (see enum _sp)
- * @param increase The stat increase amount.
- * @return true if the stat was increased by any amount, false if there were no
- *         changes.
+ * @param increase The stat increase (strictly positive) amount.
+ * @retval true  if the stat was increased by any amount.
+ * @retval false if there were no changes.
  */
 bool pc_statusup(struct map_session_data* sd, int type, int increase) {
 	int max_increase = 0, current = 0, needed_points = 0, final_value = 0;
@@ -6277,13 +6278,15 @@ bool pc_statusup(struct map_session_data* sd, int type, int increase) {
 
 /**
  * Raises a stat by the specified amount.
- * Obeys max_parameter limits.
- * Subtracts stat points.
  *
- * @param sd       The target character.
- * @param type     The stat to change (see enum _sp)
- * @param increase The stat increase amount.
- * @return zero if no changes were made, otherwise returns stat increase amount
+ * Obeys max_parameter limits.
+ * Does not subtract status points for the cost of the modified stat points.
+ *
+ * @param sd   The target character.
+ * @param type The stat to change (see enum _sp)
+ * @param val  The stat increase (or decrease) amount.
+ * @return the stat increase amount.
+ * @retval 0 if no changes were made.
  */
 int pc_statusup2(struct map_session_data* sd, int type, int val)
 {
@@ -7463,7 +7466,13 @@ int pc_setparam(struct map_session_data *sd,int type,int val)
 		break;
 	case SP_MANNER:
 		sd->status.manner = val;
-		break;
+		if( val < 0 )
+			sc_start(NULL, &sd->bl, SC_NOCHAT, 100, 0, 0);
+		else {
+			status_change_end(&sd->bl, SC_NOCHAT, INVALID_TIMER);
+			clif->manner_message(sd, 5);
+		}
+		return 1; // status_change_start/status_change_end already sends packets warning the client
 	case SP_FAME:
 		sd->status.fame = val;
 		break;
