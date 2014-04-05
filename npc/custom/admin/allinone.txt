@@ -2,7 +2,7 @@ prontera,151,192,4	script	ExhilarateRO Master	108,{
 	mes "[^0000FFExhilarateRO Master^000000]";
 	mes "Hello ^FF0000"+strcharinfo(0)+"^000000! What can I do for you?";
 	next;
-	switch (select(.menu$ + ":Cancel")) {
+	switch (select(.Menu$ + ":Cancel")) {
 	// Job Changer
 	case 1:
 	function Job_Menu; function A_An;
@@ -689,7 +689,7 @@ L_No:
 	end;
 
 OnInit:
-	set .menu$,"Job Changer:Reset NPC:Card Remover:Platinum Skills:Rental NPC:Stylist:Build Manager:Kafra:Coin Exchanger";
+	set .Menu$,"Job Changer:Reset NPC:Card Remover:Platinum Skills:Rental NPC:Stylist:Build Manager:Kafra:Coin Exchanger";
 
 	setarray .Rebirth[0],99,50;	// Minimum base level, job level to rebirth OR change to third class
 	setarray .JobReq[0],10,40;	// Minimum job level to turn into 1st class, 2nd class

@@ -1,0 +1,74 @@
+//===== Hercules Script =======================================
+//= Cluck! Cluck! Boom!
+//===== By: ==================================================
+//= Keale
+//===== Current Version: =====================================
+//= 1.2a
+//===== Description: =========================================
+//= Click the chicken and try retrieve the item at a low 
+//= chance. If you fail he will nuke, freeze, stone, 
+//= stun, or make you fall asleep.
+//= The prize is configurable and triggered by the NPC.
+//===== Additional Comments: =================================
+//= 1.0 First release.
+//= 1.1 Using 'switch rand' instead.
+//= 1.2 Cleaned and standardized. [Euphy]
+//= 1.2a Switched 'atcommand' to 'unitskilluseid'.
+//============================================================
+
+prontera,156,219,4	script	Cluckers	4_NFCOCK,{
+
+	if (.startcluck) {
+		specialeffect2 2;
+		switch(rand(15)) {
+			case 0: npctalk "CLUUUUUUCK!!!"; unitkill getcharid(3); emotion 23; break;
+			case 1: npctalk "Cluuuuuck!~"; break;
+			case 2: unitkill getcharid(3); break;
+			case 3: sc_start SC_FREEZE,10000,0; break;
+			case 4: npctalk "CLUUUUUUUUUCK!!!"; unitkill getcharid(3); emotion 23; break;
+			case 5: sc_start SC_SLEEP,10000,0; break;
+			case 6: sc_start SC_STONE,10000,0; emotion 29; break;
+			case 7: npctalk "CLUUUUUUCK!!!"; unitkill getcharid(3); emotion 23; break;
+			case 8: npctalk "Cluck! CLUUUCK!!"; unitkill getcharid(3); emotion 23; break;
+			case 9: sc_start SC_STUN,10000,0; break;
+			case 10: sc_start SC_SLEEP,10000,0; emotion 29; break;
+			case 11: npctalk "Cluck! Cluck!"; break;
+			case 12: sc_start SC_STUN,10000,0; break;
+			case 13: unitkill getcharid(3); break;
+			default:
+				if (rand(50) < 4) {
+					npctalk "WOOF!...........";
+					specialeffect2 72;
+					doevent "Event Manager::On12B";
+					set .startcluck,0;
+				} else {
+					npctalk "Cluck! CLUUUCK!!";
+					unitkill getcharid(3);
+				}
+				break;
+		}
+		end;
+	}
+	mes "[Cluckers]";
+	mes "Cluck cluck! Cluuuuuck?";
+	mes "Cluck....";
+	close;
+
+OnStart:
+	announce "[Cluck! Cluck! Boom!] is about to start in Crystilia!",bc_blue;
+	initnpctimer;
+OnTimer10000:
+	announce "Please hurry behind the fountain if you want to play with the crazy chicken!",bc_blue;
+	end;
+OnTimer20000:
+	announce "Cluckers has eaten one of my items! I'm too scared to retrieve it!",bc_blue;
+	end;
+OnTimer30000:
+	announce "Click the insane chicken and try squeeze out the item, if you're lucky you'll win! Are you ready?",bc_blue;
+	end;
+OnTimer40000:
+	announce "GO! Click the chicken to get the prize!",bc_blue;
+	stopnpctimer;
+	set .startcluck,1;
+	end;
+}

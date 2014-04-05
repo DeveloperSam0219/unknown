@@ -1,0 +1,182 @@
+prontera,146,170,5	script	Raid	100,{
+	set .@i, (gettime(7) * 365 * 24 * 60) + (gettime(8) * 24 * 60) + (gettime(3) * 60) +gettime(2);
+	mes "This is Raid Dungeon.";
+	mes "So are you ready?";
+	mes "Here we go";
+	next;
+	if ( !getcharid(1) ) {
+		mes "You have to form a party to play.";
+		close;
+	}
+	if ( getpartyleader( getcharid(1), 2 ) != getcharid(0) ) {
+		mes "Only the party leader can register.";
+		close;
+	}
+	if ( !countitem( .register_item ) ) {
+		mes "You don't have "+ getitemname( .register_item );
+		close;
+	}
+	.@origin = getcharid(3);
+	getpartymember getcharid(1), 1;
+	getpartymember getcharid(1), 2;
+	for ( .@i = 0; .@i < $@partymembercount; .@i++ ) {
+		if ( isloggedin( $@partymemberaid[.@i], $@partymembercid[.@i] ) ) {
+			attachrid $@partymemberaid[.@i];
+			if ( strcharinfo(3) == strnpcinfo(4) )
+				{ .@online++; }
+			if (.@i < (#trial)){
+				mes "Sorry but one of you in your party were already finished doing this dungeon.";
+				set .@i, (gettime(7) * 365 * 24 * 60) + (gettime(8) * 24 * 60) + (gettime(3) * 60) +gettime(2);
+				set .@days,(#trial + .MinWait - .@i)/60/24;
+				set .@hours,((#trial + .MinWait - .@i)/60)%24;
+				set .@mins,(#trial + .MinWait - .@i)%60;
+				message strcharinfo(0),"You have "+.@days+"D "+.@hours+"H "+.@mins+"M to enter the dungeon";
+				close;
+			}
+		}
+	}
+	attachrid .@origin;
+	if ( $@partymembercount != .register_min ) {
+		mes "[MvP Ladder Warper]";
+		mes "You have to form a party with exactly "+ .register_min +" members to play.";
+		close;
+	}
+	else if ( .@online != .register_min )  {
+		mes "[MvP Ladder Warper]";
+		mes "Your party must have "+ .register_min +" members online on map '"+ strnpcinfo(4) +"'.";
+		close;
+	}
+	if (!(has_instance("guild_vs2") == getcharid(1)+"via")) {
+		set .@id, instance_create("Raid Dungeon", getcharid(1)); 
+		instance_attachmap("guild_vs2",.@id,1,getcharid(1)+"via");
+		instance_init .@id;
+		instance_attach .@id;
+		delitem .register_item, 1;
+		//warp getcharid(1)+"via",0,0;
+		warpparty has_instance("guild_vs2"), 0,0, getcharid(1);
+		'lives = .party_lives;
+	}
+	else {
+		switch(select("Enter Party Raid:Cancel")) {
+			case 1:
+				if (has_instance("guild_vs2") == getcharid(1)+"via") {
+					warp getcharid(1)+"via",0,0;
+				}
+				else {
+					mes "Your party doesn't have generated instance..";
+				}
+				close;
+				end;
+			default:
+				close;
+		}
+	}
+	close;
+	end;
+OnPCDieEvent:
+	if ( strcharinfo(3) == has_instance("guild_vs2") ) {
+		instance_attach has_instance2( "guild_vs2" );
+		'lives--;
+		if ( !'lives ) {
+			instance_announce -1, "Your party has used up all the lives", bc_map;
+			.@map$ = strcharinfo(3);
+			killmonsterall .@map$;
+			sleep 5000;
+			mapwarp .@map$, .map$, .x, .y;
+		}
+		else {
+			instance_announce -1, "Your party still has "+ 'lives +" lives left", bc_map;
+		}
+	}
+	end;
+
+OnInit:
+	.register_min = 1;
+	.register_item = 501;
+	.party_lives = 3; // party
+	.MinWait = 60;
+	.totalround = 3;
+	getmapxy .map$,.x,.y,1;
+	
+	setarray .round1[0], 1001,20, 1001,20;
+	setarray .round2[0], 1031,20, 1032,20;
+	setarray .round3[0], 1111,20, 1113,20,1583,1;
+	questinfo 60351,QTYPE_JOB,1;
+	
+	end;
+}
+
+guild_vs2,0,0,0	script	Raid_ins	-1,{
+OnInstanceInit:
+	disablenpc instance_npcname("Raid Keeper");
+	sleep 2000; // delay abit
+	
+Ondead:
+	set .@mob_dead_num,mobcount(has_instance ("guild_vs2"),instance_npcname(strnpcinfo(0))+"::Ondead");
+	if ( 'round ) 'killed++;
+	if ( 'killed < 'total ) {
+		if (.@mob_dead_num > 0) {
+		mapannounce has_instance ("guild_vs2"), "Remaining Monsters on the "+callsub(L_Display,'round)+" Wave - "+.@mob_dead_num,bc_map,"0x00ff99";
+		}
+		else {
+		mapannounce has_instance ("guild_vs2"), "All Monsters on the "+callsub(L_Display,'round)+" Wave have been defeated.",bc_map,"0xffff00";
+		}
+		end;
+	}
+	.@main$ = "Raid"; // main npc name
+	'round++;
+	'killed = 0;
+	if ( 'round == getvariableofnpc( .totalround, .@main$ ) ) {
+		instance_announce -1, "Boss LEVEL !", bc_all;
+	}
+	else {
+		instance_announce -1, "Prepare for "+callsub(L_Display,'round)+" Wave...", bc_all;
+	}
+	if ( 'round == getvariableofnpc( .totalround, .@main$ ) +1 ) {
+		instance_announce -1, "Congratulations! Talk to the Raid Keeper at the center of the map.", bc_all;
+		sleep 2000;
+		enablenpc instance_npcname("Raid Keeper");
+		end;
+	}
+	sleep 2000;
+	.@size = getarraysize( getvariableofnpc( getd( ".round"+ 'round ), .@main$ ) );
+	'total = 0;
+	for ( .@j = 0; .@j < .@size; .@j += 2 ) {
+		monster has_instance( "guild_vs2" ), 0,0, "--ja--", getvariableofnpc( getelementofarray( getd( ".round"+ 'round ), .@j ), .@main$ ), getvariableofnpc( getelementofarray( getd( ".round"+ 'round ), .@j +1 ), .@main$ ), instance_npcname( strnpcinfo(0) )+"::Ondead";
+		'total = 'total + getvariableofnpc( getelementofarray( getd( ".round"+ 'round ), .@j +1 ), .@main$ );
+	}
+	end;
+	
+L_Display:
+	// Display level properly.
+	set .@mod, getarg(0) % 10;
+	if (.@mod == 1 && getarg(0) != 11) return getarg(0)+"st";
+	else if (.@mod == 2 && getarg(0) != 12) return getarg(0)+"nd";
+	else if (.@mod == 3 && getarg(0) != 13) return getarg(0)+"rd";
+	else return getarg(0)+"th";
+}
+
+guild_vs2,49,49,4	script	Raid Keeper	59,{
+	sscanf(strcharinfo(3), "%d%s", .@num, .@str$);
+	.@main$ = "Raid"; // main npc name
+	getpartymember .@num,1;
+	getpartymember .@num,2;
+	for ( .@i = 0; .@i < $@partymembercount; .@i++ ) {
+		if ( isloggedin( $@partymemberaid[.@i], $@partymembercid[.@i] ) ) {
+			attachrid $@partymemberaid[.@i];
+			set .@i, (gettime(7) * 365 * 24 * 60) + (gettime(8) * 24 * 60) + (gettime(3) * 60) +gettime(2);
+			set #trial, .@i;
+			getitem 501,10;
+		}
+	}
+	instance_warpall getvariableofnpc( .map$, .@main$ ), getvariableofnpc( .x, .@main$ ), getvariableofnpc( .y, .@main$ );
+	instance_destroy;
+	close;
+}
+
+
+guild_vs2	mapflag	nowarp
+guild_vs2	mapflag	nowarpto
+guild_vs2	mapflag	nomemo
+guild_vs2	mapflag	nosave	SavePoint
+guild_vs2	mapflag	src4instance

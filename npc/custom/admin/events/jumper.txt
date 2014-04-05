@@ -1,0 +1,117 @@
+//==========================================================//
+//========= Script by RyCHIRO =========//
+//========= http://ro-crew.rpgboard.net/ =========//
+//========= http://ro-crew.rpgboard.net/ =========//
+//==========================================================//
+
+-	script	jumpevent	95,{
+
+OnStart:
+	if (getvariableofnpc(.10_rounds[1],"Event Manager") > getvariableofnpc(.10_rounds[0],"Event Manager")){
+	stopnpctimer;
+	set $@JumpStart,0;
+	sleep 3000;
+	announce "Jumper Event : is now OVER!!",bc_blue;
+	sleep 15000;
+	movenpc "Jumper"+$@ran+"",1,1; //move the NPC
+	setnpcdisplay "Jumper"+$@ran+"",1002;
+	end;
+	}
+
+	if (getvariableofnpc(.10_rounds[1],"Event Manager") <= getvariableofnpc(.10_rounds[0],"Event Manager")){
+		if (getvariableofnpc(.10_rounds[1],"Event Manager") == 1) {
+			announce "Jumper Event : will begin in 20 seconds",bc_blue;
+			sleep 5000;
+			announce "Jumper Event : I'm Going to JUMP somewhere..!!",bc_blue;
+			sleep 5000;
+			announce "Jumper Event : By the way I'm going to disguise into a random monster.!!",bc_blue;
+			sleep 10000;
+			announce "Jumper Event : Last 10 seconds",bc_blue;
+			sleep 10000;
+		}
+		else {
+			stopnpctimer;
+			sleep 3000;
+			announce "Jumper Event : Next Round will begin in 15 seconds...",bc_blue;
+			sleep 15000;
+			setnpcdisplay "Jumper"+$@ran+"",1002;
+			movenpc "Jumper"+$@ran+"",1,1; //move the NPC
+		}
+		set $@ran, rand(1,10);
+		if ($@ran == 10) set $@jmpmap$,"rachel";
+		if ($@ran == 9) set $@jmpmap$,"hugel";
+		if ($@ran == 8) set $@jmpmap$,"gonryun";
+		if ($@ran == 7) set $@jmpmap$,"comodo";
+		if ($@ran == 6) set $@jmpmap$,"alberta";
+		if ($@ran == 5) set $@jmpmap$,"izlude";
+		if ($@ran == 4) set $@jmpmap$,"payon";
+		if ($@ran == 3) set $@jmpmap$,"geffen";
+		if ($@ran == 2) set $@jmpmap$,"morocc";
+		if ($@ran == 1) set $@jmpmap$,"prontera";
+		announce "Jumper Event : Go Find me!! I'm here in "+$@jmpmap$+"!!!",bc_blue;
+		goto OnStart2;
+	}
+	end;
+
+	OnStart2:
+	set .@valid,0;
+		while(!.@valid) {
+			set $@monster, rand(1001,1995);
+			if (!compare(.Blacklist$,""+$@monster)) set .@valid,1;
+		}
+		while(1) { //Initiate an infinite loop
+			set $@jx,rand(0,300); //Set a randon X coordinate
+			set $@jy,rand(0,300); //Set a random Y coordinate
+			if(checkcell(""+$@jmpmap$+"",$@jx,$@jy,cell_chkpass)) break; //If cell is walkable break out of the loop
+		}
+	initnpctimer;
+	set $@JumpStart,1;
+	movenpc "Jumper"+$@ran+"",$@jx,$@jy; //move the NPC
+	setnpcdisplay "Jumper"+$@ran+"",$@monster;
+	//donpcevent "Event Manager::On10B";
+	end;
+
+	OnTimer30000:	//30 secs
+	set $@JumpStart,0;
+	announce "Jumper Event : WOW no One Found ME!! I'm here in "+$@jmpmap$+" "+$@jx+" "+$@jy+"!!",bc_blue;
+	sleep 3000;
+	donpcevent "Event Manager::On10B";
+	end;
+
+OnInit:
+set .Blacklist$,
+		"1003,1006,1017,1021,1022,1027,1043,1075,1136,1137,1168,1171,1172,1173,1181,1187,1210,"+ 
+		"1217,1218,1222,1223,1224,1225,1226,1227,1228,1233,1284,1407,1411,1414,1496,1501,1900,"+
+		"1879";
+end;
+}//End Script
+
+-	script	Jumper	-1,{
+if( $@JumpStart == 0 ){
+mes "[Jumper]";
+mes "I'm sorry, Someone Found me..";
+close;
+}
+set $@JumpStart,0;
+
+mes "[Jumper]";
+mes "WOW you found me!!";
+mes "Take this as a REWARD!!";
+close2;
+doevent "Event Manager::On10C";
+end;
+}
+//End Script
+
+prontera,1,1,1	duplicate(Jumper)	Jumper1	1002
+morocc,1,1,1	duplicate(Jumper)	Jumper2	1002
+geffen,1,1,1	duplicate(Jumper)	Jumper3	1002
+payon,1,1,1	duplicate(Jumper)	Jumper4	1002
+izlude,1,1,1	duplicate(Jumper)	Jumper5	1002
+alberta,1,1,1	duplicate(Jumper)	Jumper6	1002
+comodo,1,1,1	duplicate(Jumper)	Jumper7	1002
+gonryun,1,1,1	duplicate(Jumper)	Jumper8	1002
+hugel,1,1,1	duplicate(Jumper)	Jumper9	1002
+rachel,1,1,1	duplicate(Jumper)	Jumper10	1002
+
+
